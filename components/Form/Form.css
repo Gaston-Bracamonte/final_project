@@ -1,0 +1,49 @@
+.form-wrapper {
+    width: 400px;
+    padding: 20px;
+    background: linear-gradient(to right, #a7a7a7 50%, #a7a7a7 50%);
+    border-radius: 20px; /* Bordes redondeados */
+  }
+  
+  .form-wrapper form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-wrapper label {
+    margin-bottom: 10px; /* Reducir el espacio entre etiquetas */
+    width: 150px; /* Ancho fijo para todas las etiquetas */
+    align-self: flex-start; /* Alinear a la izquierda */
+    border: none; /* Eliminar el borde */
+  }
+  
+
+  .form-wrapper input,
+  .form-wrapper textarea {
+    padding: 15px;
+    margin-bottom: 10px; /* Reducir el espacio entre campos */
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Agregar el estilo de borde */
+  }
+  
+  .form-wrapper input[type="submit"] {
+    padding: 15px 30px; /* Tamaño más grande para el botón */
+    border-radius: 20px; /* Bordes redondeados */
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .form-wrapper input[type="submit"]:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el mouse */
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 100vh; /* Opcional: ajusta la altura según tus necesidades */
+  }
+  
