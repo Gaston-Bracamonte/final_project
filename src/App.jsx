@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from '../components/NavBar/NavBar.jsx'
 import Form from '../components/Form/Form.jsx'
+import Slider from '../components/Slider/Slider.jsx'
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       </div>
       <div className="App">
         <Navbar />
+      </div>
+      <div>
+        <Slider />
       </div>
       <div>
         <Form />
