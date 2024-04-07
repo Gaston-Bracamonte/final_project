@@ -1,0 +1,47 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #dddddd 50%, #007bff 50%);
+  }
+  
+  .form-wrapper {
+    width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .form-wrapper form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-wrapper label {
+    margin-bottom: 10px;
+    width: 150px; /* Ancho fijo para todas las etiquetas */
+  }
+  
+  .form-wrapper input, 
+  .form-wrapper textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: calc(100% - 20px); /* Ancho igual para todos los inputs y textarea */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-wrapper input[type="submit"] {
+    padding: 15px 30px; /* Tamaño más grande para el botón */
+    border-radius: 20px; /* Bordes redondeados */
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .form-wrapper input[type="submit"]:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el mouse */
+  }
