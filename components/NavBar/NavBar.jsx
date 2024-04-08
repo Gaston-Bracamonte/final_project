@@ -7,7 +7,7 @@ const Navbar = () => {
             <div className="nav_items">
                 <a href="#"> Home</a>
                 <a href="#"> Quienes somos</a>
-                <a href="#"> Ubicaciones</a>
+                <a href="#"> Recomendaciones</a>
                 <a href="#"> Contacto</a>
             </div>
             <div className="nav_toggle" >
