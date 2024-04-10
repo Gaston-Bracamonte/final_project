@@ -1,8 +1,9 @@
 .form-wrapper {
     width: 400px;
     padding: 20px;
-    background: linear-gradient(to right, #a7a7a7 50%, #a7a7a7 50%);
+    background: linear-gradient(to right, blue 50%, blue 50%);
     border-radius: 20px; /* Bordes redondeados */
+    color: white;
   }
   
   .form-wrapper form {
@@ -29,8 +30,9 @@
   .form-wrapper input[type="submit"] {
     padding: 15px 30px; /* Tamaño más grande para el botón */
     border-radius: 20px; /* Bordes redondeados */
-    background-color: #007bff;
-    color: #fff;
+    background-color: #ffffff;
+    color: blue;
+    font-weight: bold;
     font-size: 16px;
     cursor: pointer;
     border: none;

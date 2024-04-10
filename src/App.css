@@ -1,30 +1,22 @@
 #root {
   /* max-width: 1280px; */
   margin: 0 auto;
-  background-color: rgb(46, 44, 44);
+  background-color: rgb(255, 255, 255);
   padding: 2rem;
   text-align: center;
 }
 
 body{ font-family: Arial, Helvetica, sans-serif;}
 
-.name {
-  position: fixed;
-  top: 0;
-  left: 30px;
-  font-size: 2em;
-  padding: 10px 20px;
-  margin: 0;
-  z-index: 999;
-  background: linear-gradient(to right, white, rgb(225, 225, 230));
-  background-clip: text; /* Utiliza background-clip en lugar de -webkit-background-clip */
-  color: transparent;
-}
 
-.header {
-  background: grey !important;
-  margin-bottom: 20px; /* Agrega 20px de margen inferior */
-  /* font-size: 2em; */
+.navTop {
+  /* background-image: url('./img/back_nav.jpg'); */
+  background-color: rgb(15, 15, 15);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 5px; /* Altura específica del navTop */
+  border-bottom: 1px solid white; /* Establece una línea sólida blanca de 1px en la parte inferior */
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -36,3 +28,108 @@ input[type="number"] {
   -moz-appearance: textfield; /* Restaurar apariencia predeterminada en Firefox */
 }
 
+.app{
+  position:relative;
+}
+
+.home {
+  background-image: url('./img/nature.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 800px;
+  display: flex; /* Utiliza flexbox */
+  justify-content: flex-start; /* Alinea los elementos al inicio horizontalmente */
+  align-items: center; /* Centra verticalmente los elementos */
+  padding-left: 50px; /* Espaciado desde el borde izquierdo */
+}
+
+
+
+.subtitle {
+  position: relative;
+  float: left;
+  width: 60%;
+  font-size: 35px;
+  color: white;
+  font-weight: bold;
+  /* -webkit-text-stroke: 1px rgb(255, 0, 0); */
+}
+
+/* .description {
+  position: relative;
+  float: left;
+  width: 40%;
+  font-size: 20px;
+  color: white;
+} */
+
+
+.home > div {
+  margin-bottom: 20px; /* Espaciado entre los elementos */
+}
+
+.information {
+  width: 100%;
+  height: 800px;
+}
+
+.subtitleInfo {
+  font-size: 45px;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 200px;
+  margin-top: 150px;
+
+}
+
+.descriptionInfo {
+  font-size: 20px;
+  text-align: justify;
+  margin-left: 200px;
+  width: 80%;
+}
+
+.pDescription {
+  margin: 20px;
+  line-Height: 1.5;
+}
+
+/* Linea de color azul en la parte de información */
+.blueLine {
+  position: absolute;
+  left: 0; /* Lo posiciona en el lado izquierdo del contenedor */
+  margin-left: 35px;
+  width: 3%; /* Ancho del rectángulo (10% del ancho del contenedor) */
+  height: 50%; /* Altura del rectángulo (50% del alto del contenedor) */
+  background-color: blue; /* Color de fondo del rectángulo */
+}
+
+
+.subtitleSlider {
+
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 100px;
+  /* display: 'flexbox'; 
+  align-Items: 'center'; */
+ }
+
+ .blue_span {
+  color: blue;
+ }
+
+ 
+.descriptionForm {
+  font-size: 20px;
+  text-align: center;
+  
+}
+
+.subtitleForm {
+
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
+ }
