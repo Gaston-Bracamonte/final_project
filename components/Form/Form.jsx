@@ -7,7 +7,7 @@ const Form = () => {
     const [showModal, setShowModal] = useState(false);
     const [isSending, setIsSending] = useState(false); // New state for sending
 
-    const handleClickEnviar = async () => {
+    const handleClickEnviar = async (event) => {
         event.preventDefault();
         const form = document.getElementById('contactForm');
         const formData = new FormData(form);
