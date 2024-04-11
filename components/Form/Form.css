@@ -1,7 +1,7 @@
 .form-wrapper {
     width: 400px;
     padding: 20px;
-    background: linear-gradient(to right, blue 50%, blue 50%);
+    background: linear-gradient(to right, rgb(135, 185, 192) 50%, rgb(135, 185, 192) 50%);
     border-radius: 20px; /* Bordes redondeados */
     color: white;
   }
@@ -31,7 +31,7 @@
     padding: 15px 30px; /* Tamaño más grande para el botón */
     border-radius: 20px; /* Bordes redondeados */
     background-color: #ffffff;
-    color: blue;
+    color: rgb(0, 0, 0);
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
@@ -46,6 +46,5 @@
     display: flex;
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
-    height: 100vh; /* Opcional: ajusta la altura según tus necesidades */
   }
   
