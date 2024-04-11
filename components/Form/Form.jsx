@@ -1,26 +1,64 @@
-import React from "react";
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import "./Form.css";
+import MessageAlert from "../MessageAlert/MessageAlert.jsx";
 
 const Form = () => {
+    const [showModal, setShowModal] = useState(false);
+    const [isSending, setIsSending] = useState(false); // New state for sending
+
+    const handleClickEnviar = async () => {
+        event.preventDefault();
+        const form = document.getElementById('contactForm');
+        const formData = new FormData(form);
+        setIsSending(true);
+
+        try {
+            const response = await fetch('/your-server-endpoint', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                setShowModal(true);
+            } else {
+                // Handle errors
+                console.error('Error sending form:', response.statusText);
+            }
+        } catch (error) {
+            // Handle network or other errors
+            console.error('Error sending form:', error);
+        } finally {
+            setIsSending(false);
+        }
+    };
+
+    const elementoModal = document.getElementById('modal-root');
+
     return (
-        <div className="form-container">
-            <div className="form-wrapper">
-                <form>
-                    <label htmlFor="nombre">Nombre:</label>
-                    <input type="text" id="name" name="nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre" />
-                    <label htmlFor="apellido">Apellido:</label>
-                    <input type="text" id="lastname" name="apellido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su apellido" />
-                    <label htmlFor="telefono">Teléfono:</label>
-                    <input type="number" id="phone" name="telefono" pattern="[0-9]+" required placeholder="Ingrese su teléfono" />
-                    <label htmlFor="email">E-mail:</label>
-                    <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico" />
-                    <label htmlFor="mensaje">Detalle del Mensaje:</label>
-                    <textarea id="message" name="mensaje" rows="4" required placeholder="Ej: quiero saber más sobre Villa Carlos Paz"></textarea>
-                    <input type="submit" value="Enviar" />
-                </form>
+        <div>
+            <div className="form-container">
+                <div className="form-wrapper">
+                <form id="contactForm">
+                        <label htmlFor="nombre">Nombre:</label>
+                        <input type="text" id="name" name="nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre" />
+                        <label htmlFor="apellido">Apellido:</label>
+                        <input type="text" id="lastname" name="apellido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su apellido" />
+                        <label htmlFor="telefono">Teléfono:</label>
+                        <input type="number" id="phone" name="telefono" pattern="[0-9]+" required placeholder="Ingrese su teléfono" />
+                        <label htmlFor="email">E-mail:</label>
+                        <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico" />
+                        <label htmlFor="mensaje">Detalle del Mensaje:</label>
+                        <textarea id="message" name="mensaje" rows="4" required placeholder="Ej: quiero saber más sobre Villa Carlos Paz"></textarea>
+                        <button onClick={handleClickEnviar} disabled={isSending}>
+                            {isSending ? 'Enviando...' : 'Enviar'}
+                        </button>
+                        {showModal && ReactDOM.createPortal(<MessageAlert title="Mensaje" message="Su mensaje ha sido enviado" />, elementoModal)}
+                    </form>
+                </div>
             </div>
         </div>
     );
 };
 
-export default Form
+export default Form;

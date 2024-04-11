@@ -23,7 +23,7 @@ function App() {
         </div> */}
       </div>
       <div className='information'>
-        <div class="blueLine"></div>
+        <div className="blueLine"></div>
         <div className='subtitleInfo'><p><span>Una provincia,</span><br></br><span className='blue_span'>mil aventuras</span></p></div>
         <div className='descriptionInfo'><p className='pDescription'>¿Cómo definimos a Córdoba? Una ciudad vibrante y llena de historia que te cautivará desde el primer momento. Sumérgete en sus calles empedradas, rodeadas de arquitectura colonial y moderna, mientras disfrutas del cálido ambiente que solo Córdoba puede ofrecer. Descubre nuestra rica cultura a través de sus numerosos museos, galerías de arte y festivales que celebran la música, el teatro y la danza. Déjate sorprender por la pasión del tango en las milongas, o sumérgete en la intensidad del fútbol en los estadios locales.Explora la naturaleza en los paisajes espectaculares de las Sierras de Córdoba, donde podrás disfrutar de actividades al aire libre como senderismo, ciclismo y rafting. O relájate en las tranquilas aguas de sus ríos y lagos, perfectos para un día de picnic o para practicar deportes acuáticos. Y por supuesto, no te pierdas la deliciosa gastronomía cordobesa, que combina sabores auténticos con influencias de todo el mundo. Desde los clásicos asados argentinos hasta las exquisitas empanadas y dulces regionales, cada bocado es una experiencia única.</p></div>
       </div>
