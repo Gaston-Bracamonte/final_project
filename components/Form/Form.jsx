@@ -7,7 +7,7 @@ const Form = () => {
     const [showModal, setShowModal] = useState(false);
     const [isSending, setIsSending] = useState(false); // New state for sending
 
-    const handleClickEnviar = async () => {
+    const handleClickEnviar = async (event) => {
         event.preventDefault();
         const form = document.getElementById('contactForm');
         const formData = new FormData(form);
@@ -15,7 +15,7 @@ const Form = () => {
 
         try {
             console.log(formData);
-            const response = await fetch('https://44.202.48.180:8000/api/person/leandro@perez.com', {
+            const response = await fetch('http://44.202.48.180:8000/api/person/gaston@perez.com', {
                 method: 'GET'
                 // body: formData,
             });
