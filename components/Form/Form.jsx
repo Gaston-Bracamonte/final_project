@@ -14,12 +14,14 @@ const Form = () => {
         setIsSending(true);
 
         try {
-            const response = await fetch('/your-server-endpoint', {
+            const response = await fetch('http://44.202.48.180:8000/api/set-person', {
                 method: 'POST',
                 body: formData,
             });
 
             if (response.ok) {
+                console.log(response);
+                console.log('we r hapy');
                 setShowModal(true);
             } else {
                 // Handle errors
