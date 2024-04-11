@@ -15,8 +15,8 @@ const Form = () => {
 
         try {
             console.log(formData);
-            const response = await fetch('https://44.202.48.180:8000/api/set-person', {
-                method: 'POST',
+            const response = await fetch('https://44.202.48.180:8000/api/person/leandro@perez.com', {
+                method: 'GET',
                 body: formData,
             });
 
