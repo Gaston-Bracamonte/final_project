@@ -14,7 +14,7 @@ const Form = () => {
         setIsSending(true);
 
         try {
-            const response = await fetch('44.202.48.180:8000/api/set-person?firstname=Juan&lastname=Perez&email=juan@perez.com&phone=3515131122', {
+            const response = await fetch('44.202.48.180:8000/api/set-person', {
                 method: 'POST',
                 body: formData,
             });
