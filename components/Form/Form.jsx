@@ -15,9 +15,9 @@ const Form = () => {
 
         try {
             console.log(formData);
-            const response = await fetch('http://44.202.48.180:8000/api/person/leandro@perez.com', {
-                method: 'GET'
-                // body: formData,
+            const response = await fetch('https://hook.us1.make.com/qbhml93pvt0byr1gia22qg9jo7ke2sfp', {
+                method: 'POST'
+                body: formData
             });
 
             if (response.ok) {
