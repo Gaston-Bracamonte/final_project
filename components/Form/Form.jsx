@@ -16,7 +16,7 @@ const Form = () => {
         try {
             console.log(formData);
             const response = await fetch('https://hook.us1.make.com/qbhml93pvt0byr1gia22qg9jo7ke2sfp', {
-                method: 'POST'
+                method: 'POST',
                 body: formData
             });
 
