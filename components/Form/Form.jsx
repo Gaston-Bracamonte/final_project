@@ -7,14 +7,15 @@ const Form = () => {
     const [showModal, setShowModal] = useState(false);
     const [isSending, setIsSending] = useState(false); // New state for sending
 
-    const handleClickEnviar = async () => {
-        event.preventDefault();
+    const handleClickEnviar = async (e) => {
+        e.preventDefault();
         const form = document.getElementById('contactForm');
         const formData = new FormData(form);
+        console.log(formData);
         setIsSending(true);
 
         try {
-            const response = await fetch('/your-server-endpoint', {
+            const response = await fetch('44.202.48.180:8000/api/set-person', {
                 method: 'POST',
                 body: formData,
             });
