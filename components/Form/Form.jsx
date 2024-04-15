@@ -7,20 +7,27 @@ const Form = () => {
     const [showModal, setShowModal] = useState(false);
     const [isSending, setIsSending] = useState(false); // New state for sending
 
-    const handleClickEnviar = async (e) => {
-        e.preventDefault();
+
+    const handleClickEnviar = async (event) => {
+        event.preventDefault();
+
         const form = document.getElementById('contactForm');
         const formData = new FormData(form);
         console.log(formData);
         setIsSending(true);
 
         try {
-            const response = await fetch('44.202.48.180:8000/api/set-person', {
+
+            console.log(formData);
+            const response = await fetch('https://hook.us1.make.com/qbhml93pvt0byr1gia22qg9jo7ke2sfp', {
+
                 method: 'POST',
-                body: formData,
+                body: formData
             });
 
             if (response.ok) {
+                console.log(response);
+                console.log('we r hapy');
                 setShowModal(true);
             } else {
                 // Handle errors
@@ -42,15 +49,15 @@ const Form = () => {
                 <div className="form-wrapper">
                 <form id="contactForm">
                         <label htmlFor="nombre">Nombre:</label>
-                        <input type="text" id="name" name="nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre" />
+                        <input type="text" id="name" name="nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre" value="dsada" />
                         <label htmlFor="apellido">Apellido:</label>
-                        <input type="text" id="lastname" name="apellido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su apellido" />
+                        <input type="text" id="lastname" name="apellido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su apellido" value="dtsadasdw" />
                         <label htmlFor="telefono">Teléfono:</label>
-                        <input type="number" id="phone" name="telefono" pattern="[0-9]+" required placeholder="Ingrese su teléfono" />
+                        <input type="number" id="phone" name="telefono" pattern="[0-9]+" required placeholder="Ingrese su teléfono" value="123456" />
                         <label htmlFor="email">E-mail:</label>
-                        <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico" />
+                        <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico" value="gaston@deam" />
                         <label htmlFor="mensaje">Detalle del Mensaje:</label>
-                        <textarea id="message" name="mensaje" rows="4" required placeholder="Ej: quiero saber más sobre Villa Carlos Paz"></textarea>
+                        <textarea id="message" name="mensaje" rows="4" required placeholder="Ej: quiero saber más sobre Villa Carlos Paz" value="dsadsa"></textarea>
                         <button onClick={handleClickEnviar} disabled={isSending}>
                             {isSending ? 'Enviando...' : 'Enviar'}
                         </button>
