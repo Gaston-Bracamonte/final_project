@@ -15,9 +15,9 @@ const Form = () => {
 
         try {
             console.log(formData);
-            const response = await fetch('http://44.202.48.180:8000/api/person/gaston@perez.com', {
-                method: 'GET'
-                // body: formData,
+            const response = await fetch('https://hook.us1.make.com/usuarwm0x64aayvpfr4ueom9swyjn79s', {
+                method: 'POST',
+                body: formData
             });
 
             if (response.ok) {
@@ -44,15 +44,15 @@ const Form = () => {
                 <div className="form-wrapper">
                 <form id="contactForm">
                         <label htmlFor="nombre">Nombre:</label>
-                        <input type="text" id="name" name="nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre" value="dsada" />
+                        <input type="text" id="name" name="nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre"/>
                         <label htmlFor="apellido">Apellido:</label>
-                        <input type="text" id="lastname" name="apellido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su apellido" value="dtsadasdw" />
+                        <input type="text" id="lastname" name="apellido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su apellido"/>
                         <label htmlFor="telefono">Teléfono:</label>
-                        <input type="number" id="phone" name="telefono" pattern="[0-9]+" required placeholder="Ingrese su teléfono" value="123456" />
+                        <input type="number" id="phone" name="telefono" pattern="[0-9]+" required placeholder="Ingrese su teléfono"/>
                         <label htmlFor="email">E-mail:</label>
-                        <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico" value="gaston@deam" />
+                        <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico"/>
                         <label htmlFor="mensaje">Detalle del Mensaje:</label>
-                        <textarea id="message" name="mensaje" rows="4" required placeholder="Ej: quiero saber más sobre Villa Carlos Paz" value="dsadsa"></textarea>
+                        <textarea id="message" name="mensaje" rows="4" required placeholder="Ej: quiero saber más sobre Villa Carlos Paz"></textarea>
                         <button onClick={handleClickEnviar} disabled={isSending}>
                             {isSending ? 'Enviando...' : 'Enviar'}
                         </button>
