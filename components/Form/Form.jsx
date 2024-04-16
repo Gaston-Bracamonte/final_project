@@ -47,9 +47,16 @@ const Form = () => {
 
             if (response.ok) {
                 console.log(response);
+                var waitingElements = document.querySelectorAll('.waitingResponse');
+                waitingElements.forEach(function(element) {
+                    element.classList.add('responseOk');
+                });
                 setShowModal(true);
             } else {
                 // Handle errors
+                var waitingElements = document.querySelectorAll('.waitingResponse');
+                waitingElements.forEach(function(element) {
+                    element.classList.add('responseOk');})
                 console.error('Error sending form:', response.statusText);
             }
         } catch (error) {
@@ -70,14 +77,14 @@ const Form = () => {
                         <label htmlFor="email">E-mail:</label>
                         <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico" onChange={(event) => validation_mail(event.target.value)}/>
                         <label htmlFor="nombre">Nombre:</label>
-                        <input className="waitingResponse" type="text" id="firstname" name="firstname" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre"/>
+                        <input className="waitingResponse responseOk" type="text" id="firstname" name="firstname" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre"/>
                         <label htmlFor="apellido">Apellido:</label>
                         <input className="waitingResponse" type="text" id="lastname" name="lastname" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su apellido"/>
                         <label htmlFor="telefono">Teléfono:</label>
                         <input className="waitingResponse" type="number" id="phone" name="phone" pattern="[0-9]+" required placeholder="Ingrese su teléfono"/>
                         <label htmlFor="mensaje">Detalle del Mensaje:</label>
                         <textarea className="waitingResponse" id="message" name="message" rows="4" required placeholder="Ej: quiero saber más sobre Villa Carlos Paz"></textarea>
-                        <button onClick={handleClickEnviar} disabled={isSending}>
+                        <button onClick={handleClickEnviar} className="waitingResponse" disabled={isSending}>
                             {isSending ? 'Enviando...' : 'Enviar'}
                         </button>
                         {showModal && ReactDOM.createPortal(<MessageAlert title="Mensaje" message="Su mensaje ha sido enviado" />, elementoModal)}
