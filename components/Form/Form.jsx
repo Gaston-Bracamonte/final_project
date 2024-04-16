@@ -10,7 +10,7 @@ const Form = () => {
     //Validamos si el correo ingresado ya está en nuestra base de datos
     const validation_mail = async (email) => {
         try {
-         
+            console.log(JSON.stringify({ email }))
             const response = await fetch('https://hook.us1.make.com/qbhml93pvt0byr1gia22qg9jo7ke2sfp', {
                 method: 'POST',
                 body: JSON.stringify({ email })
@@ -31,6 +31,7 @@ const Form = () => {
         }
     }
 
+    //Enviamos la información del formulario a la API
     const handleClickEnviar = async (event) => {
         event.preventDefault();
         const form = document.getElementById('contactForm');
