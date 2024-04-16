@@ -47,4 +47,10 @@
     justify-content: center; /* Centrar horizontalmente */
     align-items: center; /* Centrar verticalmente */
   }
+
+  .waitingResponse {
+    /* pointer-events: none;  */
+    background-color: #f2f2f2; /* Cambia el color de fondo para indicar que está deshabilitado */
+    color: #999; /* Cambia el color de texto para indicar que está deshabilitado */
+}
   

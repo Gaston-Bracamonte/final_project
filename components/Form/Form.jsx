@@ -43,16 +43,16 @@ const Form = () => {
             <div className="form-container">
                 <div className="form-wrapper">
                 <form id="contactForm">
-                        <label htmlFor="nombre">Nombre:</label>
-                        <input type="text" id="name" name="nombre" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre"/>
-                        <label htmlFor="apellido">Apellido:</label>
-                        <input type="text" id="lastname" name="apellido" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su apellido"/>
-                        <label htmlFor="telefono">Teléfono:</label>
-                        <input type="number" id="phone" name="telefono" pattern="[0-9]+" required placeholder="Ingrese su teléfono"/>
                         <label htmlFor="email">E-mail:</label>
                         <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico"/>
+                        <label htmlFor="nombre">Nombre:</label>
+                        <input className="waitingResponse" type="text" id="firstname" name="firstname" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre"/>
+                        <label htmlFor="apellido">Apellido:</label>
+                        <input className="waitingResponse" type="text" id="lastname" name="lastname" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su apellido"/>
+                        <label htmlFor="telefono">Teléfono:</label>
+                        <input className="waitingResponse" type="number" id="phone" name="phone" pattern="[0-9]+" required placeholder="Ingrese su teléfono"/>
                         <label htmlFor="mensaje">Detalle del Mensaje:</label>
-                        <textarea id="message" name="mensaje" rows="4" required placeholder="Ej: quiero saber más sobre Villa Carlos Paz"></textarea>
+                        <textarea className="waitingResponse" id="message" name="message" rows="4" required placeholder="Ej: quiero saber más sobre Villa Carlos Paz"></textarea>
                         <button onClick={handleClickEnviar} disabled={isSending}>
                             {isSending ? 'Enviando...' : 'Enviar'}
                         </button>
