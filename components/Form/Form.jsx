@@ -7,6 +7,30 @@ const Form = () => {
     const [showModal, setShowModal] = useState(false);
     const [isSending, setIsSending] = useState(false); // New state for sending
 
+    //Validamos si el correo ingresado ya está en nuestra base de datos
+    const validation_mail = async (email) => {
+        try {
+         
+            const response = await fetch('https://hook.us1.make.com/qbhml93pvt0byr1gia22qg9jo7ke2sfp', {
+                method: 'POST',
+                body: JSON.stringify({ email })
+            });
+
+            if (response.ok) {
+                console.log(response);
+                setShowModal(true);
+            } else {
+                // Handle errors
+                console.error('Error sending form:', response.statusText);
+            }
+        } catch (error) {
+            // Handle network or other errors
+            console.error('Error sending form:', error);
+        } finally {
+            setIsSending(false);
+        }
+    }
+
     const handleClickEnviar = async (event) => {
         event.preventDefault();
         const form = document.getElementById('contactForm');
@@ -22,7 +46,6 @@ const Form = () => {
 
             if (response.ok) {
                 console.log(response);
-                console.log('we r hapy');
                 setShowModal(true);
             } else {
                 // Handle errors
@@ -44,7 +67,7 @@ const Form = () => {
                 <div className="form-wrapper">
                 <form id="contactForm">
                         <label htmlFor="email">E-mail:</label>
-                        <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico"/>
+                        <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico" onChange={(event) => validation_mail(event.target.value)}/>
                         <label htmlFor="nombre">Nombre:</label>
                         <input className="waitingResponse" type="text" id="firstname" name="firstname" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre"/>
                         <label htmlFor="apellido">Apellido:</label>
