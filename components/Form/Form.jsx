@@ -79,6 +79,21 @@ const Form = () => {
         const formData = new FormData(form);
         setIsSending(true);
 
+        // Validar si todos los campos requeridos están completos
+        const email = formData.get('email');
+        const firstname = formData.get('firstname');
+        const lastname = formData.get('lastname');
+        const phone = formData.get('phone');
+        const message = formData.get('message');
+
+        if (!email || !firstname || !lastname || !phone || !message) {
+               //Mostramos la leyenda de que el mensaje ha sido enviado
+            var labelMessage = document.getElementById('returnMessage');
+            labelMessage.classList.add('sendMessage');
+            labelMessage.textContent = '¡Faltan completar algunos datos, así podemos contactarte sin problema!';
+            setIsSending(false); // Detener el estado de envío
+            return; // Salir de la función si falta algún campo
+        }
 
         try {
             console.log(formData);
@@ -121,7 +136,7 @@ const Form = () => {
 
     return (
         <div>
-            <label class="validationLabel" htmlFor="validation" id="returnMessage"></label>
+            <label className="validationLabel" htmlFor="validation" id="returnMessage"></label>
             <div className="form-container">
                 <div className="form-wrapper">
                     <form id="contactForm">
