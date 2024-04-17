@@ -3,19 +3,30 @@ import "./NavBar.css"
 
 const Navbar = () => {
     return(
-        <div className="navbar">
-            <div className="nav_items">
-                <a href="#"> Home</a>
-                <a href="#"> Quienes somos</a>
-                <a href="#"> Recomendaciones</a>
-                <a href="#"> Contacto</a>
-            </div>
-            <div className="nav_toggle" >
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+        <nav className="navbar navbar-expand-lg bg-body-tertiary black">
+        <div className="container-fluid">
+          <a className="navbar-brand titleColor">TurismoCba</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <a className="nav-link active color" aria-current="page" href="#">Home</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link color" href="#">Que ofrecemos</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link color" href="#">Recomendaciones</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link color" href="#">Contacto</a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </nav>
         
     )
 }

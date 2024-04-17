@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
 import "./Form.css";
-import MessageAlert from "../MessageAlert/MessageAlert.jsx";
+
 
 const Form = () => {
-    const [showModal, setShowModal] = useState(false);
+
     const [isSending, setIsSending] = useState(false);
+
+    function clearField(field) {
+        //Obtenemos el elemento por ID
+        var setField = document.getElementById(field);
+        console.log(setField);
+        if (setField) {
+            setField.classList.remove('waitingResponse');
+            setField.classList.remove('responseOk');
+            if (field !== 'mail') {
+                setField.classList.add('waitingResponse');
+            }
+            if (field !== 'submit-button') {
+                setField.value = "";
+            }
+        }
+    }
 
     //Validamos si el correo ingresado ya está en nuestra base de datos
     const validation_mail = async (email) => {
@@ -27,7 +42,7 @@ const Form = () => {
                     document.getElementById('firstname').value = responseData.firstname;
                     document.getElementById('lastname').value = responseData.lastname;
                     document.getElementById('phone').value = responseData.phone;
-                    document.getElementById('user_id').value = responseData.id;
+                    document.getElementById('userId').value = responseData.id;
 
                     // Habilitamos el elemento message y el botón para enviar el formulario
                     var waitingElements = document.querySelectorAll('.responseValidate');
@@ -44,7 +59,7 @@ const Form = () => {
                         element.classList.add('responseOk');
                     });
                 }
-                           
+
             } else {
                 // Manejo de errores en el formulario
                 console.error('Error sending form:', response.statusText);
@@ -64,6 +79,7 @@ const Form = () => {
         const formData = new FormData(form);
         setIsSending(true);
 
+
         try {
             console.log(formData);
             const response = await fetch('https://hook.us1.make.com/usuarwm0x64aayvpfr4ueom9swyjn79s', {
@@ -73,14 +89,28 @@ const Form = () => {
             //Validamos que hayamos obtenido respuesta de la llamada de la API
             if (response.ok) {
                 console.log(response);
+                //Seteamos nuevamente los campos para que quede visible el placeholder
+                clearField("mail");
+                clearField("firstname");
+                clearField("lastname");
+                clearField("phone");
+                clearField("message");
+                clearField("submit-button");
+                document.getElementById("userId").value = "";
 
-                setShowModal(true);
+                //Mostramos la leyenda de que el mensaje ha sido enviado
+                var labelMessage = document.getElementById('returnMessage');
+                labelMessage.classList.add('sendMessage');
+                labelMessage.textContent = '¡Mensaje enviado con éxito!';
+
+
+
             } else {
-                // Handle errors
+                // Manejo de errores en el formulario
                 console.error('Error sending form:', response.statusText);
             }
         } catch (error) {
-            // Handle network or other errors
+            // Manejo de errores de conexión
             console.error('Error sending form:', error);
         } finally {
             setIsSending(false);
@@ -91,12 +121,13 @@ const Form = () => {
 
     return (
         <div>
+            <label class="validationLabel" htmlFor="validation" id="returnMessage"></label>
             <div className="form-container">
                 <div className="form-wrapper">
                     <form id="contactForm">
-                        <input type="hidden" id="user_id" value="" name="user_id" />
+                        <input type="hidden" id="userId" value="" name="user_id" />
                         <label htmlFor="email">E-mail:</label>
-                        <input type="text" id="email" name="email" required placeholder="Ingrese su correo electrónico" onBlur={(event) => validation_mail(event.target.value)} />
+                        <input type="text" id="mail" name="email" required placeholder="Ingrese su correo electrónico" onBlur={(event) => validation_mail(event.target.value)} />
                         <label htmlFor="nombre">Nombre:</label>
                         <input className="waitingResponse" type="text" id="firstname" name="firstname" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" required placeholder="Ingrese su nombre" />
                         <label htmlFor="apellido">Apellido:</label>
@@ -108,7 +139,6 @@ const Form = () => {
                         <button onClick={handleClickEnviar} className="waitingResponse responseValidate" id="submit-button" disabled={isSending}>
                             {isSending ? 'Enviando...' : 'Enviar'}
                         </button>
-                        {showModal && ReactDOM.createPortal(<MessageAlert title="Mensaje" message="Su mensaje ha sido enviado" />, elementoModal)}
                     </form>
                 </div>
             </div>

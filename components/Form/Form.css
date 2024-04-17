@@ -1,9 +1,9 @@
 .form-wrapper {
     width: 400px;
     padding: 20px;
-    background: linear-gradient(to right, rgb(135, 185, 192) 50%, rgb(135, 185, 192) 50%);
+    background: linear-gradient(to right, rgb(0, 0, 0) 70%, rgb(46, 46, 46) 30%);
     border-radius: 20px; /* Bordes redondeados */
-    color: white;
+    color: rgb(0, 0, 0);
   }
   
   .form-wrapper form {
@@ -27,21 +27,7 @@
     border: 1px solid #ccc; /* Agregar el estilo de borde */
   }
   
-  .form-wrapper input[type="submit"] {
-    padding: 15px 30px; /* Tamaño más grande para el botón */
-    border-radius: 20px; /* Bordes redondeados */
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-  }
-  
-  .form-wrapper input[type="submit"]:hover {
-    background-color: #0056b3; /* Cambio de color al pasar el mouse */
-  }
-  
+ 
   .form-container {
     display: flex;
     justify-content: center; /* Centrar horizontalmente */
@@ -56,13 +42,13 @@
 
 .responseOk{
   pointer-events: auto; 
-  background-color: #ffffff; /* Cambia el color de fondo para indicar que está deshabilitado */
+  background-color: #f3f3f3; /* Cambia el color de fondo para indicar que está deshabilitado */
   color: #000000; /* Cambia el color de texto para indicar que está deshabilitado */
 }
   
 #submit-button {
-  background-color: #84ccb6;
-  color: #fff;
+  background-color: #e2e2e2;
+  color: #000000;
   padding: 10px 20px;
   border: none;
   border-radius: 15px;
@@ -74,5 +60,19 @@
 }
 
 #submit-button:hover {
-  background-color: #52b96c;
+  background-color: #ffffff;
+}
+
+.phantomElement{
+  color:black;
+}
+
+.validationLabel {
+  display: none;
+}
+
+.validationLabel.sendMessage {
+  display:block;
+  color:red;
+  font-size: 20px;
 }
