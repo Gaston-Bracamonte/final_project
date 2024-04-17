@@ -76,3 +76,9 @@
   color:red;
   font-size: 20px;
 }
+
+.disabledForm {
+    pointer-events: none; /* Deshabilita los eventos de puntero */
+    opacity: 0.5; /* Puedes ajustar la opacidad para atenuar los campos */
+  
+}

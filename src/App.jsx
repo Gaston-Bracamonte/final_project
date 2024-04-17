@@ -13,7 +13,7 @@ function App() {
         </div>
       </div>
       {/* Fin de la barra superior */}
-      <div className='home'>
+      <div className='home' id="section1">
         <div>
           <span className='subtitle'>¡Si estás acá, estás un paso más cerca de Córdoba!</span>
         </div>
@@ -22,13 +22,13 @@ function App() {
         <span className='description'>¡Ven y descubre la magia de Córdoba, una ciudad que te recibirá con los brazos abiertos y te dejará con recuerdos inolvidables!</span>
         </div> */}
       </div>
-      <div className='information'>
+      <div className='information' id="section2">
         <div className="blueLine"></div>
         <div className='subtitleInfo'><p><span>Una provincia,</span><br></br><span className='blue_span'>mil aventuras</span></p></div>
         <div className='descriptionInfo'><p className='pDescription'>¿Cómo definimos a Córdoba? Una ciudad vibrante y llena de historia que te cautivará desde el primer momento. Sumérgete en sus calles empedradas, rodeadas de arquitectura colonial y moderna, mientras disfrutas del cálido ambiente que solo Córdoba puede ofrecer. Descubre nuestra rica cultura a través de sus numerosos museos, galerías de arte y festivales que celebran la música, el teatro y la danza. Déjate sorprender por la pasión del tango en las milongas, o sumérgete en la intensidad del fútbol en los estadios locales.Explora la naturaleza en los paisajes espectaculares de las Sierras de Córdoba, donde podrás disfrutar de actividades al aire libre como senderismo, ciclismo y rafting. O relájate en las tranquilas aguas de sus ríos y lagos, perfectos para un día de picnic o para practicar deportes acuáticos. Y por supuesto, no te pierdas la deliciosa gastronomía cordobesa, que combina sabores auténticos con influencias de todo el mundo. Desde los clásicos asados argentinos hasta las exquisitas empanadas y dulces regionales, cada bocado es una experiencia única.</p></div>
       </div>
       {/* Slider */}
-      <div className='slider'>
+      <div className='slider' id="section3">
         <div className='subtitleSlider'>
           <p>   <span>¿Aún con dudas?</span><br />
             <span className='blue_span'>¡Echa un vistazo!</span>  </p>
@@ -37,10 +37,10 @@ function App() {
       </div>
       {/* Fin slider */}
       {/* Formulario */}
-      <div>
+      <div id="section4">
       <div className='subtitleForm'>¡Contáctanos!</div>
       <div className='descriptionForm'><p className='pDescription'>Por cualquier duda, por información o solo por saludar, ¡estaremos encantandos con tu mensaje!</p></div>
-        <Form />
+        <div id="form"><Form /></div>
       </div>
       {/* Fin formulario */}
     </div>

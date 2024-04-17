@@ -77,9 +77,15 @@ const Form = () => {
         event.preventDefault();
         const form = document.getElementById('contactForm');
         const formData = new FormData(form);
+        form.style.pointerEvents = "none";
+        const elementosFormulario = form.querySelectorAll("input, select, textarea, button");
+        // Iterar sobre cada elemento y deshabilitarlo
+        elementosFormulario.forEach(elemento => {
+            elemento.disabled = true;
+        });
         setIsSending(true);
 
-        // Validar si todos los campos requeridos están completos
+        // Validamos si todos los campos requeridos están completos
         const email = formData.get('email');
         const firstname = formData.get('firstname');
         const lastname = formData.get('lastname');
@@ -87,11 +93,15 @@ const Form = () => {
         const message = formData.get('message');
 
         if (!email || !firstname || !lastname || !phone || !message) {
-               //Mostramos la leyenda de que el mensaje ha sido enviado
+            //Mostramos la leyenda de que el mensaje ha sido enviado
             var labelMessage = document.getElementById('returnMessage');
             labelMessage.classList.add('sendMessage');
-            labelMessage.textContent = '¡Faltan completar algunos datos, así podemos contactarte sin problema!';
+            labelMessage.textContent = '¡No eres tú! ¡Somos nosotros que necesitamos que completes todos los datos para poderte ofrecer la mejor atención!';
             setIsSending(false); // Detener el estado de envío
+            form.style.pointerEvents = "auto";
+            elementosFormulario.forEach(elemento => {
+                elemento.disabled = false;
+            });
             return; // Salir de la función si falta algún campo
         }
 
@@ -117,7 +127,10 @@ const Form = () => {
                 var labelMessage = document.getElementById('returnMessage');
                 labelMessage.classList.add('sendMessage');
                 labelMessage.textContent = '¡Mensaje enviado con éxito!';
-
+                form.style.pointerEvents = "auto";
+                elementosFormulario.forEach(elemento => {
+                    elemento.disabled = false;
+                });
 
 
             } else {
@@ -132,7 +145,7 @@ const Form = () => {
         }
     };
 
-    const elementoModal = document.getElementById('modal-root');
+    // const elementoModal = document.getElementById('modal-root');
 
     return (
         <div>

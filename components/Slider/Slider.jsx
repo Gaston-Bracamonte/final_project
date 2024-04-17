@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 const Slider = () => {
   // Array de URLs de imágenes de ejemplo
   const images = [
-    'https://tripin.travel/wp-content/uploads/2016/07/CarlosPaz01-secretaria.jpg',
-    'https://i.ytimg.com/vi/DBhLXgVu9AQ/maxresdefault.jpg',
+    '../../src/img/slider_img/night_city.jpg',
+    '../../src/img/slider_img/nono.jpg',
+    '../../src/img/slider_img/park.jpg',
+    '../../src/img/slider_img/san_antonio_lake.jpg',
+    '../../src/img/slider_img/sierras.jpg',
   ];
 
   // Estado para almacenar el índice de la imagen actual
