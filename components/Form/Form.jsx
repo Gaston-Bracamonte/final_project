@@ -13,8 +13,13 @@ const Form = () => {
         if (setField) {
             setField.classList.remove('waitingResponse');
             setField.classList.remove('responseOk');
+            setField.disabled = false;
             if (field !== 'mail') {
                 setField.classList.add('waitingResponse');
+            }
+            else 
+            {
+                setField.classList.add('responseOk');
             }
             if (field !== 'submit-button') {
                 setField.value = "";
@@ -44,6 +49,15 @@ const Form = () => {
                     document.getElementById('phone').value = responseData.phone;
                     document.getElementById('userId').value = responseData.id;
 
+                    //Evitamos que se pueda ingresar por tabulaciones
+                    const form = document.getElementById('contactForm');
+                    const elementosFormulario = form.querySelectorAll("input");
+                    elementosFormulario.forEach(elemento => {
+                        elemento.tabIndex = -1;
+                        elemento.classList.add('waitingResponse');
+
+                    });
+
                     // Habilitamos el elemento message y el botón para enviar el formulario
                     var waitingElements = document.querySelectorAll('.responseValidate');
                     waitingElements.forEach(function (element) {
@@ -63,6 +77,13 @@ const Form = () => {
                     document.getElementById('lastname').value = "";
                     document.getElementById('phone').value = "";
                     document.getElementById('userId').value = "";
+
+                    // Habilitamos nuevamente la tabulación en los elementos del formulario
+                    const form = document.getElementById('contactForm');
+                    const elementosFormulario = form.querySelectorAll("input, select, textarea, button");
+                    elementosFormulario.forEach(elemento => {
+                        elemento.tabIndex = 0;
+                    });
                 }
 
             } else {
@@ -136,6 +157,13 @@ const Form = () => {
                 elementosFormulario.forEach(elemento => {
                     elemento.disabled = false;
                 });
+
+                  // Habilitamos nuevamente la tabulación en los elementos del formulario
+                  const form = document.getElementById('contactForm');
+                  const elementosFormulario = form.querySelectorAll("input, select, textarea, button");
+                  elementosFormulario.forEach(elemento => {
+                      elemento.tabIndex = 0;
+                  });
 
 
             } else {
