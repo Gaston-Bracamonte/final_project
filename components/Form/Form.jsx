@@ -58,6 +58,11 @@ const Form = () => {
                     waitingElements.forEach(function (element) {
                         element.classList.add('responseOk');
                     });
+                    //Volvemos los campos a su valor predeterminado por si hubo un mail antes
+                    document.getElementById('firstname').value = "";
+                    document.getElementById('lastname').value = "";
+                    document.getElementById('phone').value = "";
+                    document.getElementById('userId').value = "";
                 }
 
             } else {
