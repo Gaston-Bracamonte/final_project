@@ -1,5 +1,5 @@
 #root {
-  /* max-width: 1280px; */
+
   margin: 0 auto;
   background-color: rgb(255, 255, 255);
   padding: 2rem;
@@ -10,13 +10,13 @@ body{ font-family: Arial, Helvetica, sans-serif;}
 
 
 .navTop {
-  /* background-image: url('./img/back_nav.jpg'); */
+ 
   background-color: rgb(15, 15, 15);
   background-size: cover;
   background-position: center;
   color: white;
-  height: 5px; /* Altura específica del navTop */
-  border-bottom: 1px solid white; /* Establece una línea sólida blanca de 1px en la parte inferior */
+  height: 5px; 
+  border-bottom: 1px solid white; 
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -25,7 +25,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 input[type="number"] {
-  -moz-appearance: textfield; /* Restaurar apariencia predeterminada en Firefox */
+  -moz-appearance: textfield; 
 }
 
 .app{
@@ -38,10 +38,10 @@ input[type="number"] {
   background-position: center;
   width: 100%;
   height: 800px;
-  display: flex; /* Utiliza flexbox */
-  justify-content: flex-start; /* Alinea los elementos al inicio horizontalmente */
-  align-items: center; /* Centra verticalmente los elementos */
-  padding-left: 50px; /* Espaciado desde el borde izquierdo */
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  padding-left: 50px; 
 }
 
 
@@ -57,7 +57,7 @@ input[type="number"] {
 
 
 .home > div {
-  margin-bottom: 20px; /* Espaciado entre los elementos */
+  margin-bottom: 20px; 
 }
 
 .information {
@@ -89,11 +89,11 @@ input[type="number"] {
 /* Linea de color azul en la parte de información */
 .blueLine {
   position: absolute;
-  left: 0; /* Lo posiciona en el lado izquierdo del contenedor */
+  left: 0; 
   margin-left: 35px;
-  width: 3%; /* Ancho del rectángulo (10% del ancho del contenedor) */
-  height: 50%; /* Altura del rectángulo (50% del alto del contenedor) */
-  background-color: blue; /* Color de fondo del rectángulo */
+  width: 3%; 
+  height: 50%; 
+  background-color: blue;
 }
 
 
@@ -126,10 +126,13 @@ input[type="number"] {
  #section4 {
   background-image: linear-gradient(to top, transparent, rgb(255, 255, 255)),
   url('./img/back_contactForm.jpg');
-  /* Otras propiedades opcionales para ajustar el tamaño y la apariencia de la imagen */
-  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir toda la sección */
-  background-position: center; /* Centra la imagen en la sección */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat; 
   
+ }
+
+ #formElement {
+  padding-bottom: 20px;
  }
  

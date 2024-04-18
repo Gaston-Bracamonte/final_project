@@ -2,6 +2,7 @@ import './App.css'
 import Navbar from '../components/NavBar/NavBar.jsx'
 import Form from '../components/Form/Form.jsx'
 import Slider from '../components/Slider/Slider.jsx'
+import Footer from '../components/Footer/Footer.jsx'
 
 function App() {
   return (
@@ -40,9 +41,12 @@ function App() {
       <div id="section4">
       <div className='subtitleForm'>¡Contáctanos!</div>
       <div className='descriptionForm'><p className='pDescription'>Por cualquier duda, por información o solo por saludar, ¡estaremos encantandos con tu mensaje!</p></div>
-        <div id="form"><Form /></div>
+        <div id="formElement"><Form /></div>
       </div>
       {/* Fin formulario */}
+      <div id="section5">
+        <Footer />
+        </div>
     </div>
   );
 }
