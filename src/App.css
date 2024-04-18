@@ -136,3 +136,8 @@ input[type="number"] {
   padding-bottom: 20px;
  }
  
+ @media only screen and (max-width: 800px) {
+  #section2 {
+    display: none; /* Ocultar la sección 2 en dispositivos móviles */
+  }
+}
