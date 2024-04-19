@@ -21,18 +21,23 @@ const Carousel = () => {
   ]);
 
   const carouselRef = useRef(null);
-
-  const nextSlide = () => {
-    if (carouselRef.current) {
-      carouselRef.current.next();
-    }
-  };
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000); // Change interval to 3000 milliseconds (3 seconds)
-    return () => clearInterval(interval);
-  }, []);
+    const intervalId = setInterval(() => {
+      const nextSlideIndex = (currentSlideIndex + 1) % slides.length;
+      setCurrentSlideIndex(nextSlideIndex);
+    }, 3000); // Change image every 3 seconds
 
+    return () => clearInterval(intervalId); // Cleanup function to prevent memory leaks
+  })
+
+  const handleSlideChange = (newIndex) => {
+    setCurrentSlideIndex(newIndex); // Update currentSlideIndex when user clicks next/prev buttons
+  };
+ 
+
+  
     return (
         <div className="carousel-container">
         <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" ref={carouselRef}>
@@ -51,14 +56,26 @@ const Carousel = () => {
                         </div>
                     ))}
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
+                <button 
+  className="carousel-control-prev" 
+  type="button" 
+  data-bs-target="#carouselExampleIndicators" 
+  data-bs-slide="prev" 
+  onClick={() => handleSlideChange((currentSlideIndex - 1 + slides.length) % slides.length)}
+>
+  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span className="visually-hidden">Previous</span>
+</button>
+<button 
+  className="carousel-control-next" 
+  type="button" 
+  data-bs-target="#carouselExampleIndicators" 
+  data-bs-slide="next" 
+  onClick={() => handleSlideChange((currentSlideIndex + 1) % slides.length)}
+>
+  <span className="carousel-control-next-icon" aria-hidden="true"></span>
+  <span className="visually-hidden">Next</span>
+</button>
             </div>
         </div>
     );
