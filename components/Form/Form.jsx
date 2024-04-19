@@ -122,6 +122,7 @@ const Form = () => {
             //Mostramos la leyenda de que el mensaje ha sido enviado
             var labelMessage = document.getElementById('returnMessage');
             labelMessage.classList.add('sendMessage');
+            labelMessage.classList.add('red');
             labelMessage.textContent = '¡No eres tú! ¡Somos nosotros que necesitamos que completes todos los datos para poderte ofrecer la mejor atención!';
             setIsSending(false); // Detener el estado de envío
             form.style.pointerEvents = "auto";
@@ -152,6 +153,7 @@ const Form = () => {
                 //Mostramos la leyenda de que el mensaje ha sido enviado
                 var labelMessage = document.getElementById('returnMessage');
                 labelMessage.classList.add('sendMessage');
+                labelMessage.classList.add('green');
                 labelMessage.textContent = '¡Mensaje enviado con éxito!';
                 form.style.pointerEvents = "auto";
                 elementosFormulario.forEach(elemento => {

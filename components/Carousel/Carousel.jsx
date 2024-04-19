@@ -30,7 +30,7 @@ const Carousel = () => {
     }, 3000); // Change image every 3 seconds
 
     return () => clearInterval(intervalId); // Cleanup function to prevent memory leaks
-  })
+  }, [slides.length, currentSlideIndex]); // Dependency array to ensure updates when slides or current index change
 
   const handleSlideChange = (newIndex) => {
     setCurrentSlideIndex(newIndex); // Update currentSlideIndex when user clicks next/prev buttons
